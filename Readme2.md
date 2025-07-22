@@ -232,3 +232,116 @@ DA	Data Analyst	데이터 분석 및 인사이트 도출
 DBA	Database Administrator	DB 관리 및 운영
 DDL	Data Definition Language	DB 구조(테이블 등) 정의 및 변경
 DML	Data Manipulation Language	DB 데이터 조회/삽입/수정/삭제
+
+
+✅ F/E: Front-End (프론트엔드)
+사용자 눈에 보이는 화면, 직접 클릭하고 사용하는 부분을 개발하는 영역이야.
+
+📱 예시
+웹사이트에서 버튼, 글자, 이미지, 애니메이션 등
+
+로그인 화면, 게시글 목록, 쇼핑몰 결제 화면 등
+
+🛠 사용하는 기술
+구분	예시 기술
+언어	HTML, CSS, JavaScript
+프레임워크	React, Vue.js, Angular
+기타 도구	Figma(디자인 협업), Sass, Tailwind CSS
+
+✅ B/E: Back-End (백엔드)
+사용자는 볼 수 없지만, 서버에서 실제로 데이터를 처리하고 저장하는 영역이야.
+
+🔄 예시
+로그인하면 ID/PW를 검사해서 통과 여부 판단
+
+게시글을 저장하거나 불러오는 처리
+
+결제 요청을 실제로 처리
+
+🛠 사용하는 기술
+구분	예시 기술
+언어	Java, Python, JavaScript(Node.js), PHP
+프레임워크	Spring Boot, Django, Express
+데이터베이스	MySQL, MongoDB, PostgreSQL
+기타 도구	JWT(로그인 토큰), API 설계, Docker
+
+🔗 F/E ↔ B/E 어떻게 연결돼?
+프론트엔드에서 버튼 클릭 → 백엔드에 요청(API) → 백엔드가 결과 반환
+
+예:
+
+로그인 버튼 클릭
+
+프론트가 ID/PW를 백엔드에 보냄
+
+백엔드가 확인 후 “로그인 성공” 응답
+
+프론트가 다음 화면으로 이동시킴
+
+📌 정리표
+구분	F/E (Front-End)	B/E (Back-End)
+사용자에겐	보인다	보이지 않는다
+기능	화면 구성, 사용자 인터랙션	데이터 처리, 서버 로직, DB 연결
+사용 언어	HTML, CSS, JS, React 등	Java, Spring, Node.js, Python 등
+개발 도구	브라우저, Figma 등	서버, DB, Postman, Docker 등
+
+풀스택 개발자라면 이 둘을 모두 다룰 수 있어야 해.
+너처럼 K-Digital 자바 풀스택 과정 듣는 경우,
+보통 F/E는 React, B/E는 Spring Boot + MySQL로 배우게 돼!
+
+더 궁금한 용어나 연결 개념 있으면 이어서 알려줄게 😊
+
+
+🧱 용어 정리 먼저!
+용어	뜻 / 역할
+F/W	Framework (프레임워크) – 개발 뼈대
+Spring Boot	Java 백엔드 개발용 프레임워크 (F/W의 한 종류)
+Codespaces	GitHub에서 제공하는 온라인 개발 환경(클라우드 IDE)
+
+🔗 이 셋은 이렇게 연결돼
+1️⃣ Spring Boot는 F/W의 한 종류다
+Spring Boot는 Java 언어로 웹 서버를 만들 때 사용하는 프레임워크야.
+
+즉, **F/W(프레임워크)**라는 넓은 개념 안에 포함된 구체적인 기술이 Spring Boot야.
+
+✅ F/W = 개념
+✅ Spring Boot = 그 개념을 실제로 구현한 도구
+
+2️⃣ Spring Boot 프로젝트를 개발할 때 Codespaces를 쓸 수 있다
+Spring Boot는 보통 IntelliJ, Eclipse 같은 도구로 개발하지만,
+최근에는 GitHub Codespaces로도 개발할 수 있어.
+
+Codespaces는 웹 브라우저에서 바로 코딩 가능한 환경이라
+설정 없이 바로 Spring Boot 프로젝트를 실행하거나 디버깅할 수 있어.
+
+🔁 흐름으로 정리해보자
+plaintext
+복사
+편집
+1. 프로젝트를 시작한다
+    ↓
+2. 백엔드 프레임워크로 "Spring Boot"를 선택한다 (F/W의 일종)
+    ↓
+3. 개발 환경으로 GitHub Codespaces를 사용해 작업한다
+🔍 예시 상황
+“GitHub에서 Spring Boot 템플릿을 Codespaces로 열어서 백엔드 API를 만든다.”
+
+Spring Boot = 서버와 API 기능을 만들기 위한 프레임워크
+
+Codespaces = GitHub에서 바로 코딩할 수 있는 온라인 도구
+
+F/W = Spring Boot 같은 프레임워크가 있다는 개념 자체
+
+✅ 한 줄 요약
+Spring Boot는 F/W(프레임워크)의 일종이고,
+Codespaces는 그런 Spring Boot 개발을 할 수 있는 **클라우드 개발 환경(IDE)**이야.
+
+필요하다면:
+
+Spring Boot 기본 구조
+
+Codespaces에서 Spring Boot 시작하는 법
+
+또는 실제 사용 예시
+
+도 더 알려줄 수 있어! 다음 질문도 환영이야 😊
