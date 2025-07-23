@@ -345,3 +345,217 @@ Codespaces에서 Spring Boot 시작하는 법
 또는 실제 사용 예시
 
 도 더 알려줄 수 있어! 다음 질문도 환영이야 😊
+
+
+✅ 자동 타입 변환이란?
+작은 자료형 → 큰 자료형으로의 변환은 명시적 형변환 없이 자동으로 일어납니다.
+
+📌 예시
+java
+복사
+편집
+int num = 10;
+double d = num;  // int → double로 자동 변환
+System.out.println(d);  // 출력: 10.0
+int는 double보다 범위가 작기 때문에 자동으로 변환됩니다.
+
+📋 기본 자료형 간 변환 순서
+자동 변환은 아래처럼 작은 → 큰 순서로 가능합니다:
+
+arduino
+복사
+편집
+byte → short → int → long → float → double
+            ↘
+            char
+char는 양의 정수로 취급되어 int, long, float, double로 변환 가능
+
+✅ 예시 코드 모음
+1. int → long
+java
+복사
+편집
+int a = 1000;
+long b = a; // 자동 변환
+2. char → int
+java
+복사
+편집
+char ch = 'A';
+int code = ch; // 'A'의 아스키코드 65
+System.out.println(code); // 65
+3. float → double
+java
+복사
+편집
+float f = 3.14f;
+double d = f; // 자동 변환
+❌ 자동 변환이 불가능한 경우
+큰 타입 → 작은 타입으로는 자동 변환되지 않음 (명시적 형변환 필요)
+
+java
+복사
+편집
+double d = 3.14;
+int i = d; // 오류!
+int i = (int) d; // 명시적 변환 필요
+✅ 객체(클래스)에서도 자동 형변환 발생
+클래스 간 상속 관계
+java
+복사
+편집
+class Animal {}
+class Dog extends Animal {}
+
+Animal a = new Dog();  // 자동 형변환 (업캐스팅)
+자식 객체 → 부모 타입으로 자동 변환 가능
+
+이건 다형성에서도 핵심적으로 사용됨
+
+🔄 자동 변환 vs 강제 변환 차이
+구분	자동 타입 변환	강제(명시적) 타입 변환
+방향	작은 타입 → 큰 타입	큰 타입 → 작은 타입
+안전성	데이터 손실 없음	데이터 손실 가능성 있음
+예	int → double	double → int (예: (int) 3.14)
+
+📚 정리
+개념	설명
+자동 타입 변환	작은 타입 → 큰 타입으로 자동 변환
+적용 대상	기본 자료형, 상속 클래스
+다른 이름	묵시적 형변환, Upcasting
+주의점	반대 방향은 명시적 변환 필요 ((타입) 변수)
+
+원한다면 자동 타입 변환이 일어나는 컴파일 규칙이나 JVM 내부 동작까지도 더 깊이 설명해줄 수 있어요.
+
+
+🔤 1. 문자 (char)
+✅ 정의:
+문자 1개를 저장하는 자료형
+Java에서 char는 2바이트 크기로, 유니코드 문자 1개를 저장합니다.
+
+✅ 특징:
+작은 따옴표 ' '로 표현
+
+숫자(유니코드 값)로도 처리 가능
+
+✅ 예시:
+java
+복사
+편집
+char ch = 'A';
+System.out.println(ch);       // 출력: A
+System.out.println((int) ch); // 출력: 65 (유니코드 값)
+📚 2. 문자열 (String)
+✅ 정의:
+문자의 연속된 집합 (0개 이상 문자로 구성된 데이터)
+
+✅ 특징:
+큰 따옴표 " "로 표현
+
+String은 클래스형 자료형 (기본형이 아님)
+
+여러 메서드 제공 (length(), substring(), charAt() 등)
+
+✅ 예시:
+java
+복사
+편집
+String str = "Hello";
+System.out.println(str);            // 출력: Hello
+System.out.println(str.charAt(1));  // 출력: e (문자 1개)
+⚖️ 문자 vs 문자열 비교 표
+항목	문자 (char)	문자열 (String)
+의미	문자 1개	문자들의 집합
+표현	'A'	"Apple"
+자료형	기본형 (primitive)	참조형 (클래스)
+크기	2바이트	가변 길이
+예시	'가', 'B', '1'	"가나다", "Java", ""
+사용 시	문자 1개만 필요할 때	여러 문자 조작할 때
+
+💡 예외 주의사항
+아래는 오류!
+
+java
+복사
+편집
+char ch = "A";   // ❌ 큰따옴표 사용 → 문자열
+String str = 'A'; // ❌ 작은따옴표 사용 → 문자
+자바에서 String은 객체이므로 .equals()로 비교해야 합니다:
+
+java
+복사
+편집
+String a = "Hello";
+String b = "Hello";
+System.out.println(a == b);        // 주소 비교 (true일 수도 false일 수도)
+System.out.println(a.equals(b));   // ✅ 문자열 내용 비교
+✅ 요약
+개념	문자	문자열
+크기	하나의 글자	여러 글자
+표현 방식	'A'	"Apple"
+자료형	char	String
+용도	키 하나, 성별(M/F) 등	이름, 문장 등
+
+필요하다면 StringBuilder, 문자열 → 문자 배열, 또는 문자 처리 예제도 도와줄게요!
+
+
+
+🧹 Format Document란?
+현재 열려 있는 문서 전체를 **코드 스타일 규칙에 맞게 자동으로 포맷팅(정리)**해주는 기능
+
+예를 들어 자바 코드를…
+
+🧾 포맷 전:
+java
+복사
+편집
+public class Hello{public static void main(String[] args){System.out.println("Hi");}}
+✅ 포맷 후:
+java
+복사
+편집
+public class Hello {
+    public static void main(String[] args) {
+        System.out.println("Hi");
+    }
+}
+💻 실행 방법
+방법 1: 마우스 우클릭
+코드 편집창에서 우클릭 → Format Document
+
+방법 2: 단축키
+운영체제	단축키
+Windows / Linux	Shift + Alt + F
+macOS	Shift + Option + F
+
+⚙️ 포맷터 설정
+포맷터 확장 설치 예:
+Java: Eclipse Java Formatter, Google Java Format
+
+HTML/CSS/JS: Prettier, ESLint
+
+Python: Black, autopep8
+
+확장을 설치하면 파일 저장 시 자동 포맷팅도 가능해요.
+
+json
+복사
+편집
+// settings.json 예시
+"[java]": {
+  "editor.defaultFormatter": "redhat.java",
+  "editor.formatOnSave": true
+}
+📌 주의사항
+포맷터 확장이 설치되지 않았거나 설정이 충돌하면 작동하지 않을 수 있어요.
+
+Format Document는 언어별로 지원 다름 → 해당 언어용 포맷터 필요
+
+✅ 요약
+항목	내용
+기능	코드 자동 정리 (들여쓰기, 괄호, 공백 등)
+단축키	Shift + Alt + F (Win), Shift + Option + F (Mac)
+장점	코드 가독성 향상, 팀 스타일 통일
+확장	Java, Prettier, ESLint 등 필요시 설치
+
+필요하다면 자바용 포맷터 설정 예제나 Prettier 설정도 도와줄 수 있어요!
