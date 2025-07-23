@@ -559,3 +559,76 @@ Format Document는 언어별로 지원 다름 → 해당 언어용 포맷터 필
 확장	Java, Prettier, ESLint 등 필요시 설치
 
 필요하다면 자바용 포맷터 설정 예제나 Prettier 설정도 도와줄 수 있어요!
+
+
+🔁 강제 타입 변환이란?
+더 큰 타입의 값을 더 작은 타입으로 변환할 때, 컴파일러가 자동으로 해주지 않기 때문에 개발자가 형을 명시해야 하는 형변환
+
+✅ 기본 문법
+java
+복사
+편집
+타입 변수 = (변환할_타입) 값;
+📌 예제 1: double → int
+java
+복사
+편집
+double d = 3.14;
+int i = (int) d;  // 강제 형변환
+System.out.println(i);  // 출력: 3 (소수점 제거)
+💥 주의:
+소수점 잘림(버림) 발생
+
+데이터 손실 가능성 있음
+
+📌 예제 2: long → int
+java
+복사
+편집
+long l = 10000000000L;
+int i = (int) l;
+System.out.println(i);  // 값이 잘못 나올 수 있음 (오버플로우 발생)
+📌 예제 3: char ↔ int
+java
+복사
+편집
+char ch = 'A';
+int code = (int) ch;      // char → int
+System.out.println(code); // 65
+
+int num = 66;
+char ch2 = (char) num;    // int → char
+System.out.println(ch2);  // B
+📌 강제 변환이 필요한 상황
+상황	예시
+정수 → 문자	(char) 65 → 'A'
+실수 → 정수	(int) 3.99 → 3
+long → int	(int) 1234567890123L
+float → int	(int) 5.7f
+
+❗ 주의사항
+데이터 손실 위험이 항상 존재
+
+오버플로우/언더플로우가 발생할 수 있음
+
+java
+복사
+편집
+int a = 128;
+byte b = (byte) a;
+System.out.println(b);  // 출력: -128 (범위 초과로 잘림)
+🎯 강제 변환 vs 자동 변환 비교
+항목	자동 변환	강제 변환
+방향	작은 → 큰 타입	큰 → 작은 타입
+문법	자동 처리	(타입)으로 명시 필요
+데이터 손실	없음	있음 가능성 높음
+예	int → long	double → int
+
+✅ 요약
+키워드	설명
+강제 형변환	큰 타입 → 작은 타입
+문법	(타입) 변수
+주의	데이터 손실, 오버플로우 가능성
+용도	필요 시 명확하게 변환 명시
+
+필요하다면 객체(클래스)의 형변환 (업캐스팅, 다운캐스팅)도 함께 설명해줄 수 있어요!
